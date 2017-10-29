@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request, redirect, url_for
-from logs import get_top_articles, get_most_popular_authors, get_days_with_error
+from logs import get_top_articles, get_most_popular_authors,
+get_days_with_error
 
 app = Flask(__name__)
 
@@ -47,13 +48,15 @@ ROW = '''\
 # I know global variables are evil, but I am doing it for simplicity's sake.
 # I have no idea why this doesn't work as a string, but somehow works
 # as a tuple. It's a terrible way to do this as the tuple grows on each
-# query, and also clearing it at any point in the code empties it and breaks it.
-# In addition, the previous results will be shown on the web form whenever a GET
-# operation is performed. Normally I'd write a class and the object could hold
-# this data, but since this is just procedural code I don't know any better way
-# to keep the data after a POST. Maybe the fetching part should be done on GET
-# instead. Hopefully the person reading this comment can enlighten me...
+# query, and also clearing it at any point in the code empties and breaks it.
+# In addition, the previous results will be shown on the web form whenever a
+# GET operation is performed. Normally I'd write a class and the object could
+# hold this data, but since this is just procedural code I don't know any
+# better way to keep the data after a POST. Maybe the fetching part should be
+# done on GET instead.
+# Hopefully the person reading this comment can enlighten me...
 query_result = [""]
+
 
 @app.route('/', methods=['GET'])
 def main():
@@ -80,6 +83,7 @@ def post():
         generate_table(rows, 'Date', 'Errors')
 
     return redirect(url_for('main'))
+
 
 def generate_table(rows, col1, col2):
     '''Generate a HTML table with two columns'''
