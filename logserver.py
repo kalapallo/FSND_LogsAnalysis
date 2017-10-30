@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request, redirect, url_for
-from logs import get_top_articles, get_most_popular_authors,
+from logs import get_top_articles, get_most_popular_authors,\
 get_days_with_error
 
 app = Flask(__name__)

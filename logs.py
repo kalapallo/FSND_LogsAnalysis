@@ -9,7 +9,7 @@ DB_NAME = "news"
 def get_top_articles():
     query = "SELECT title, count(*) AS views FROM articles LEFT JOIN log " + \
         "ON log.path = '/article/' || articles.slug " + \
-        "GROUP BY articles.title ORDER BY views DESC"
+        "GROUP BY articles.title ORDER BY views DESC LIMIT 3"
 
     return get_results(query)
 
